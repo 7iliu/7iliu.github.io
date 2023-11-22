@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Qi Liu</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Qi Liu is a PhD student at City University of Hong Kong.">
+    <meta name="keywords" content="Qi Liu,AI for Science,Machine Learning,Cognitive Science">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/flowchart.css">
+    <link rel="shortcut icon" href="static/img/favicon.ico">
+
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+body{margin:0;padding:0; font-family: New Century Schoolbook, TeX Gyre Schola, serif;line-height: 1.2;}
+a{color:#7C81AD}
+a:hover{color:#A0BFE0;cursor:pointer}
+#background{position:fixed;top:0;overflow:hidden;height:0}
+#wave-canvas{display:block;position:relative;top:0;left:5%;width:55%;min-width:850px;height:150px;border:0}
+/*#main{z-index:2;margin:0 auto;position:absolute;padding-top:5%;width:100%;min-width:240px;text-align:center;background-color:rgb(254,250,246)}*/
+#main{margin:0 auto;padding:45px 30px 15px;width:100%;min-width:240px;text-align:center;background-color:#fafcff}
+.highlight{color:#b6274e;font-weight:600}
+.highlight:hover{color:#b6274e;font-weight:600}
+small {
+  color: #7C81AD;
+  font-size: small;
+}
+hr{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  box-shadow: var(--shd,0 0 5px rgba(0,0,0,.7));
+  opacity: 0.5;
+}
+.subtitle{font-weight: 600;}
+.profile-rabbit {display:none}
+@media (min-width: 768px) {
+    .profile-rabbit {display:block}
+}
+
+.main-content{padding:0;text-align:center;cursor:default;text-align:center;}
+/*.main-content{background:rgba(238,238,238,0.95);padding:0;text-align:center;cursor:default;text-align:center;}*/
+/*.main-content{margin-left:6.5104167%;width:86.9791667%;}*/
+@media (min-width: 768px) {
+    .main-content{width:66%;min-width:668px;margin:auto;}
+}
+@media (min-width: 1200px) {
+    .main-content{width:66%;max-width:1090px;margin:auto;}
+}
+/*.main-content {
+    width:86.9791667%;
+    margin: 0 auto;
+}
+@media (min-width: 768px) {
+    .main-content{width:66%;min-width:668px;}
+}
+@media (min-width: 1200px) {
+    .main-content{width:66%;max-width:900px;}
+}*/
+
+/* Avatar, Name, etc. */
+#main-content-container{margin:0 auto;padding:15px 0 0;max-width:1090px;}
+@media (min-width: 768px) {
+    #main-content-container{padding:15px 0;}
+}
+#main-content-container .row{display: flex; align-items: center; }
+#main-content-container .col-avatar{text-align:center}
+@media (min-width: 768px) {
+    #main-content-container .col-avatar{text-align:center}
+}
+#main-content-container .col-avatar .avatar{z-index:100;width:200px;height:200px;margin-top:0px;border-radius:100%;box-shadow: 2px 2px 4px #888;opacity:1;} /*box-shadow:0 0 0 0.3em #eee;*/
+
+#main-content-container .col-info{height:100%;align-items:center;}
+#main-info-container{padding-top:15px}
+#main-info-container .col-name{text-align:center;margin-top:30px;color: #0c3c60;}
+@media (min-width: 768px) {
+    #main-info-container .col-name{text-align:left;margin-top:0;}
+}
+#main-info-container .col-name .text{text-align:left}
+#main-info-container .col-name .name{margin:0;color:#6681ca;font-size:1.85em;font-family:Palatino, URW Palladio L, serif;font-weight:600}
+#main-info-container .col-name .email{color:#7C81AD; font-size:14px}
+#main-info-container .col-link{text-align:center;margin:-5px 0 -25px;}
+#main-info-container .col-link ul {margin:0px auto auto;padding:0;list-style:none;text-align:center}
+#main-info-container .col-link li {display:inline-block;margin:auto;padding:0 10px;color:#ccc;line-height:10px}
+#main-info-container .col-link li a{width:45px;height:45px;color:#ccc;padding:0;font-size:45px;line-height:45px}
+#main-info-container .col-link li a:focus,
+#main-info-container .col-link li a:hover{text-decoration:none;cursor:hand}
+#main-info-container .col-link li a.border{border:1px solid #ccc;border-radius:100%;}
+#main-info-container .col-link li a.padding{padding:0px 0px;font-size:22px}
+
+/* Other */
+.main-more-container{width:100%;padding:0 30px;color: #0c3c60;}
+
+.main-bio-container{margin:auto;padding: 0 0em;max-width:1090px;text-align:left;padding-top:30px;max-width:1090px;font-size:1rem;line-height:1.4}
+.main-bio-container .subtitle{margin-top:0px;color:#6681ca}
+.main-bio-container ul{padding:0;list-style:none;}
+
+
+.toggle-overview {background:#fafcff;display:block;text-align:center;padding:5px;color:#6681ca;font-weight:500}
+.toggle-overview:hover {text-decoration:none}
+/* @media (max-width: 560px) {section.overview {display:none}} */
+.thick>p {font-size: 1rem}
+.thick>p>a, .think>p>a:hover {background:#fafcff;display:block;text-align:center;padding:5px;color:#6681ca;font-weight:500;text-decoration:none}
+
+#main-pub-container{margin:auto;padding: 0 0em;max-width:1090px;text-align:left;padding-top:30px;max-width:1090px}
+#main-pub-container .subtitle{color:#6681ca;}
+#main-pub-container .subtitle a {font-size:medium; color: #96a5b3; font-weight:400}
+#main-pub-container .subtitle a.activated {color:#6681ca; font-weight:600}
+#main-pub-container .subtitle a.activated:focus,
+#main-pub-container .subtitle a.activated:hover {text-decoration:none;cursor:initial}
+
+#main-pub-container .subtitle-aux {font-size:1rem}
+#main-pub-container .subtitle-aux a.activated {color:#6681ca}
+#main-pub-container .subtitle-aux a.activated:focus,
+#main-pub-container .subtitle-aux a.activated:hover {text-decoration:none;cursor:initial}
+#main-pub-container .subtitle-aux .note{margin-left:1em;color:#999999;text-decoration:none;font-size:14px}
+
+#main-pub-card-container{}
+#main-pub-card-container>h5{font-size: 1em; margin-bottom: 0px; color: #687EFF;}
+#main-pub-card-container .pub-card{width: 100%;padding-bottom:15px;font-size:15px}
+#main-pub-card-container .pub-card .col-l{text-align:center;padding-top:10px}
+#main-pub-card-container .pub-card .col-r{padding-top:10px}
+@media only screen and (min-width: 768px) {
+  #main-pub-card-container .pub-card .col-l{flex:0 0 30%;max-width:30%}
+  #main-pub-card-container .pub-card .col-r{flex:0 0 70%;max-width:70%}
+}
+
+#main-pub-card-container .pub-card img{width:100%;margin:0 auto;border-radius: 8px;}
+#main-pub-card-container .pub-card-body{width:100%;background:transparent;padding-left:0px}
+#main-pub-card-container .pub-card .title{font-weight:600;font-size:15px;margin-bottom:4px;line-height:1}
+#main-pub-card-container .pub-card .authors{font-weight:400;color:#666666;margin-bottom:4px;line-height:1}
+#main-pub-card-container .pub-card .authors a{color:#666666}
+#main-pub-card-container .pub-card .authors u{color:#333333;font-weight:600;text-decoration:none}
+#main-pub-card-container .pub-card .conference{color:#333333;font-weight:600}
+#main-pub-card-container .pub-card .note{display:block;color:#999999;text-decoration:none;font-size:15px}
+#main-pub-card-container .pub-card .info{margin-bottom:0; font-size: 14px;}
+#main-pub-card-container .row{margin:0}
+#main-pub-card-container .col-l,
+#main-pub-card-container .col-r{vertical-align:top;display:inline-block;margin:0;padding-left:0px}
+
+.main-service-container{margin:auto;padding: 0 0em;max-width:1090px;text-align:left;padding-top:30px;max-width:1090px;font-size:1rem;line-height:1.4}
+.main-service-container .subtitle{margin-top:0px;color:#6681ca}
+.main-service-container ul{padding:0;list-style:none;}
+
+.main-exp-container{margin:auto;padding: 0 0em;max-width:1090px;text-align:left;padding-top:30px;max-width:1090px;font-size:1rem;line-height:1.4}
+.main-exp-container .subtitle{margin-top:0px;color:#6681ca}
+.main-exp-container ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);padding:0;list-style:none;
+}
+.main-exp-container ul li{
+    margin: 0px 0px 5px;
+}
+
+/* #footer{padding:0 0 1.5em;margin-top:2rem;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;background:#fef8f3} */
+#footer{padding:0 0 5px;margin-top:0;min-width:240px;background:#fff;font-size:14px;line-height:12px;text-align:left;}
+#footer{background:#fafcff; background-size: 15px 15px; background-repeat: repeat;}/*background:url(static/img/girl-with-fish-bg.jpg); */
+#footer .container{max-width:540px;padding:0 45px;position:relative}
+#footer .row{align-items:center;display: flex;}
+/*#footer .comic{padding-right:15px;padding-top:15px;}*/
+#footer .copyright{margin:5px auto 5px;text-align:center;display:block;font-size:1rem;line-height:1.4;color:#8D8DAA}
+#footer .stat{overflow:hidden;margin-top:5px;}
+@media (min-width: 420px){
+    #footer .stat{display:block;width:50px;height:50px;overflow:hidden;margin-top:15px;padding-right:15px;}
+}
+#footer a{color:#666666}
+#footer a:hover{color:#333333}
+
+.bold{font-weight:600}
+.hide{display:none}
+    </style>
+</head>
+
+<body onload="updateTime()">
+
+<!--img src="static/img/hal-gatewood.jpg" id="background" class="" /-->
+
+<div id="main">
+    <!--canvas id="wave-canvas"></canvas-->
+
+    <div class="main-content">
+        <div id="main-content-container" class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-avatar">
+                    <center><img src="static/img/avatar.jpg" class="avatar" /></center>
+                </div>
+                <div class="col-sm-12 col-md-8">
+                    <div id="main-info-container">
+                        <!--div class="profile-rabbit" style="bottom:-100px;right:-200px;position:absolute"><img src="static/img/rabbit.png" width=200px; height="200px" /></div-->
+                        <div class="col-name">
+                            <h1 class="name"><span>Qi Liu<small>/ch-ee; l-ee-uu/</small> 刘琦</span></h1>
+                            <p class="email">Email: 7.liuqi [at] gmail [dot] com</p>
+                            <p>I am the final-year Ph.D. candidate at <a href="https://www.cityu.edu.hk/" target="_blank"> City University of Hong Kong</a>, supervised by <a href="https://scholar.google.com/citations?user=n71R2h8AAAAJ&hl=en" target="_blank"> Dr. Rosa H.M. Chan</a>. 
+                                <br>My research interests include AI for science and biomedical applications, with a particular emphasis on utilizing structure-based models to achieve robustness, and generalization in the algorithmic and application healthcare AI.</p>
+                            <p><span style="color: #EB455F"><strong>I am looking for postdoctoral positions.</strong></span> See my <a href="data/cv/CV2023.pdf" target="_blank">CV</a>. <br>Feel free to <a href="mailto:7.liuqi@gmail.com">reach out</a> for research collaborations or other engagements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-content">
+    <div class="main-more-container">
+        <div class="main-bio-container">
+            <h5 class="subtitle" style="margin-top:30px">Research Highlights</h5>
+            <p>
+                My research lies in closing the loop between AI and scientific discovery and building biomedical and healthcare AI applications. 
+                <br> 
+                I believe that building robust and generalizable bio/healthcare AI relies on learning physically reasonable models by understanding the data generation process of the observable data (e.g., the generative causal process for the physical system) and the underlying inherent structures and topology of data (e.g., general graph learning and incorporating structural priors for learning). 
+                <br>
+                To achieve this goal, I work on these directions:
+                <ul>
+                    <li>➤ <strong>Structural or causal representation learning for scientific discovery</strong>: Discover the underlying physical process for molecular dynamics under various environments [NeurIPS’22 workshop Oral].</li>
+                    <li>➤ <strong>General graph learning</strong>: Improve generalization and robustness of graph models via disentangle learning and pre-training [Under review], graph-structured neural networks [PR’23].</li>
+                    <li>➤ <strong>Healthcare and medical AI applications</strong>: Efficient Bio-mechanical parameter estimation [JoB’20; EMBC’23]; Drug discovery [EMBC’20]</li>
+                </ul>
+
+
+            <!-- (<i>e.g.,</i> <a class="highlight">red</a> is a unary function that returns Booleans, actions have Hoare-logic-like preconditions and postconditions), and their structures (<i>e.g.,</i> a push action only changes the pose of one object if being collision-free, a wiping policy has for-loops) -->
+            </p>
+
+            <!--<h5 class="subtitle">News</h5>
+            <ul>
+                <li>[02/2023] Happy to join <a href=" http://roseyu.com" target="_blank">Rose-STL-Lab</a> in UC San Diego as a visiting scholar.</li>
+                <li>[11/2022] Happy to receive travel award from <a href="https://nips.cc/virtual/2022/workshop/50019">NeurIPS 2022 AI for Science: Progress and Promises</a>.</li>
+            </ul>-->
+        </div>
+    </div>
+
+    <div class="main-more-container">
+        <div id="main-pub-container">
+            <h5 class="subtitle">Publications
+            <small>(<a id="publication-by-selected" href="javascript:;", onClick="publicationBySelected();">show selected</a> /
+                <!--<a id="publication-by-date" href="javascript:;", onClick="publicationByDate();">show all by date</a> /-->
+                <a id="publication-by-topic" href="javascript:;", onClick="publicationByTopic();">show all by topic</a>)</small>
+            </h5>
+            
+            
+            <p class="subtitle-aux"><span class="bold">Topics:</span>
+                <a href="#topic-ai4science-healthcare" onClick="return publicationByTopicSpecific(this)" data-topic="ai4science-healthcare">AI for Science or Healthcare</a> /
+                <a href="#topic-generaldl-applications" onClick="return publicationByTopicSpecific(this)" data-topic="generaldl-applications">General Deep Learning and Applications</a> 
+                <span class="note">(* indicates co-first authors.)</span>
+                <!--<a href="#topic-scene-understanding" onClick="return publicationByTopicSpecific(this)" data-topic="scene-understanding">Scene and Activity Understanding</a>
+                <br />
+                Past topics: <a href="#topic-vision" onClick="return publicationByTopicSpecific(this)" data-topic="vision">Object Detection</a> /
+                <a href="#topic-nlp" onClick="return publicationByTopicSpecific(this)" data-topic="nlp">Structured NLP</a>
+                -->
+            </p>
+           
+            <div id="main-pub-card-container" class="activated hide">
+                <div class="pub-card" data-topic="generaldl-applications" data-year="2023" data-selected="true">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3">
+                            <img src="data/pubs/arxiv23_inlp.png" />
+                        </div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Interactive Natural Language Processing</h5>
+                                <p class="authors">
+                                    <author>Zekun Wang*</author>,
+                                    <author>Ge Zhang*</author>,
+                                    <author>Kexin Yang</author>,
+                                    <author>Ning Shi</author>,
+                                    <author>Wangchunshu Zhou</author>,
+                                    <author>Shaochun Hao</author>,
+                                    <author>Guangzheng Xiong</author>,
+                                    <author>Yizhi Li</author>,
+                                    <author>Mong Yuan Sim</author>,
+                                    <author>Xiuying Chen</author>,
+                                    <author>Qingqing Zhu</author>,
+                                    <author>Zhenzhu Yang</author>,
+                                    <author>Adam Nik</author>,
+                                    <u>Qi Liu</u>,
+                                    <a href="https://chenghualin.wordpress.com/" target="_blank"><author>Chenghua Lin</author></a>,
+                                    <a href="https://ictkc.github.io/" target="_blank"><author>Shi Wang</author></a>,
+                                    <a href="https://scholar.google.com/citations?user=5lgfeo4AAAAJ&hl=en" target="_blank"><author>Ruibo Liu</author></a>,
+                                    <a href="https://wenhuchen.github.io/" target="_blank"><author>Wenhu Chen</author></a>,
+                                    <a href="http://vlsicad.eecs.umich.edu/BK/Slots/cache/www.nlsde.buaa.edu.cn/~kexu/" target="_blank"><author>Ke Xu</author></a>,
+                                    <a href="https://dayihengliu.github.io/" target="_blank"><author>Dayiheng Liu</author></a>,
+                                    <a href="https://scholar.google.com/citations?user=-0q6cIYAAAAJ&hl=en" target="_blank"><author>Yike Guo</author></a>,
+                                    <a href="https://bigaidream.github.io/" target="_blank"><author>Jie Fu</author></a>.
+                                </p>
+                                <p class="info">
+                                    <em>ArXiv, 2023</em>
+                                    <br>
+                                    <a href="https://arxiv.org/abs/2305.13246" target="_blank">PDF</a> / <a href="https://github.com/InteractiveNLP-Team/awesome-InteractiveNLP-papers" target="_blank">Code</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="generaldl-applications" data-year="2023" data-selected="true">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3">
+                            <img src="data/pubs/pr23_ccnet.png" />
+                        </div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Community Channel-Net: Efficient Channel-wise Interactions via Community Graph Topology</h5>
+                                <p class="authors">
+                                    <author>Fan Feng*</author>,
+                                    <u>Qi Liu</u>*,
+                                    <author>Zhanglin Peng</author>,
+                                    <a href="http://www.zhangruimao.site/" target="_blank"><author>Ruimao Zhang</author></a>,
+                                    <a href="https://scholar.google.com/citations?user=n71R2h8AAAAJ&hl=en" target="_blank"><author>Rosa H.M. Chan</author></a>.
+                                    
+                                </p>
+                                <p class="info">
+                                    <em>Pattern Recognition (<strong>PR</strong>), 2023</em>
+                                    
+                                    <br>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0031320323002364" target="_blank">PDF</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pub-card" data-topic="ai4science-healthcare" data-year="2022" data-selected="true">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3">
+                            <img src="data/pubs/neuripsw22_scmd.png" />
+                        </div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Structural Causal Model for Molecular Dynamics Simulation</h5>
+                                <p class="authors">
+                                    <u>Qi Liu</u>,
+                                    <author>Yuanqi Du</author>,
+                                    <author>Fan Feng</author>,
+                                    <a href="https://scholar.google.com/citations?user=RJ6SuR8AAAAJ&hl=en" target="_blank"><author>Qiwei Ye</author></a>,
+                                    <a href="https://bigaidream.github.io/" target="_blank"><author>Jie Fu</author></a>.
+                                </p>
+                                <p class="info">
+                                    <em>Conference on Neural Information Processing Systems Workshop (<strong>NeurIPS W</strong>) AI for Science: Progress and Promises, 2022</em>
+                                    <br>
+                                    <font color="darkred">Oral presentation</font>
+                                    <br>
+                                    <a href="https://openreview.net/forum?id=LtON28ko1bh" target="_blank">PDF</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card" data-topic="ai4science-healthcare" data-year="2023" data-selected="false">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3"></div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Tracking Bilateral Lower Limb Kinematics of Distance Runners on Treadmill using a Single Inertial Measurement Unit</h5>
+                                <p class="authors">
+                                    <author>Yuvraj Patra</author>,
+                                    <a href="https://scholar.google.com/citations?user=n71R2h8AAAAJ&hl=en" target="_blank"><author>Rosa H.M. Chan</author></a>,
+                                    <u>Qi Liu</u>,
+                                    <author>Daniel Thomson</author>,
+                                    <a href="https://www.linkedin.com/in/chow-daniel-387bb3a3/?originalSubdomain=hk" target="_blank"><author>Daniel H.K. Chow</author></a>,
+                                    <author>Ben Fuller</author>,
+                                    <a href="https://scholar.google.com/citations?user=nLYFBNkAAAAJ&hl=zh-TW" target="_blank"><author>Roy T. H. Cheung</author></a>.
+                                </p>
+                                <p class="info">
+                                    <em>45th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (<strong>EMBC</strong>), 2023</em>
+                                    <!--<br>
+                                    <a href="https://openreview.net/forum?id=LtON28ko1bh" target="_blank">PDF</a>
+                                    <a href="./bibtex/neuripsw22.txt" target="_blank">[BibTeX]</a>-->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card" data-topic="ai4science-healthcare" data-year="2020" data-selected="false">
+                    <div class="row">
+                        
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Classification of runners’ performance levels with concurrent prediction of biomechanical parameters using data from inertial measurement units</h5>
+                                <p class="authors">
+                                    <u>Qi Liu</u>*,
+                                    <a href="https://scholar.google.com.hk/citations?user=uule76YAAAAJ&hl=zh-CN" target="_blank"><author>Shiwei Mo*</author></a>,
+                                    <a href="https://au.linkedin.com/in/daniel-thomson-436339a2" target="_blank"><author>Vincent C.K. Cheung</author></a>,
+                                    <author>Ben M.F. Cheung</author>,
+                                    <author>Shuotong Wang</author>,
+                                    <author>Peter P.K. Chan</author>,
+                                    <author>Akash Malhotra</author>,
+                                    <a href="https://scholar.google.com/citations?user=nLYFBNkAAAAJ&hl=zh-TW" target="_blank"><author>Roy T. H. Cheung</author></a>,
+                                    <a href="https://scholar.google.com/citations?user=n71R2h8AAAAJ&hl=en" target="_blank"><author>Rosa H.M. Chan</author></a>.
+                                </p>
+                                <p class="info">
+                                    <em>Journal of Biomechanics(<strong>JoB</strong>), 2020</em>
+                                    <br>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0021929020304966?via%3Dihub" target="_blank">PDF</a>
+                                    <!--<a href="./bibtex/neuripsw22.txt" target="_blank">[BibTeX]</a>-->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card" data-topic="ai4science-healthcare" data-year="2020" data-selected="false">
+                    <div class="row">
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Machine Learning-Driven Drug Discovery: Prediction of Structure-Cytotoxicity Correlation Leads to Identification of Potential Anti-Leukemia Compounds</h5>
+                                <p class="authors">
+                                    <author>Zishen Li</author>,
+                                    <a href="https://yunwah.wordpress.com/" target="_blank"><author>Yun Wah Lam</author></a>,
+                                    <u>Qi Liu</u>,
+                                    <author>Alison Y. K. Lau</author>,
+                                    <author>Ho Yu Au-Yeung</author>,
+                                    <a href="https://scholar.google.com/citations?user=n71R2h8AAAAJ&hl=en" target="_blank"><author>Rosa H.M. Chan</author></a>.
+                                </p>
+                                <p class="info">
+                                    <em>42th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (<strong>EMBC</strong>), 2020</em>
+                                    <br>
+                                    <a href="https://doi.org/10.1109/EMBC44109.2020.9175850" target="_blank">PDF</a>
+                                    <!--<a href="./bibtex/neuripsw22.txt" target="_blank">[BibTeX]</a>-->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card" data-topic="generaldl-applications" data-year="2022" data-selected="false">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3">
+                        </div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Towards lifelong object recognition: A dataset and benchmark</h5>
+                                <p class="authors">
+                                    <author>Chuanlin Lan*</author>,
+                                    <author>Fan Feng*</author>,
+                                    <u>Qi Liu</u>,
+                                    <a href="https://qi-she.net/" target="_blank"><author>Qi She</author></a>,
+                                    <author>Qihan Yang</author>,
+                                    <author>Xinyue Hao</author>,
+                                    <author>Ivan Mashkin</author>,
+                                    <author>Ka Shun Kei</author>,
+                                    <author>Dong Qiang</author>,
+                                    <a href="https://www.vincenzolomonaco.com/" target="_blank"><author>Vincenzo Lomonaco</author></a>,
+                                    <a href="https://scholar.google.com/citations?user=wRBbtl8AAAAJ&hl=en" target="_blank"><author>Xuesong Shi</author></a>,
+                                    <a href="https://scholar.google.com/citations?user=TaYR7cMAAAAJ&hl=en" target="_blank"><author>Zhengwei Wang</author></a>,
+                                    <a href="https://scholar.google.com.hk/citations?user=gi2uD2MAAAAJ&hl=zh-CN" target="_blank"><author>Yao Guo</author></a>,
+                                    <a href="https://ieeexplore.ieee.org/author/37279959000" target="_blank"><author>Yimin Zhang</author></a>,
+                                    <a href="https://scholar.google.com/citations?user=3rxoDYcAAAAJ&hl=en" target="_blank"><author>Fei Qiao</author></a>,
+                                    <a href="https://scholar.google.com/citations?user=n71R2h8AAAAJ&hl=en" target="_blank"><author>Rosa H.M. Chan</author></a>.
+                                    
+                                </p>
+                                <p class="info">
+                                    <em>Pattern Recognition (<strong>PR</strong>), 2022</em>
+                                    
+                                    <br>
+                                    <a href="https://doi.org/10.1016/j.patcog.2022.108819" target="_blank">PDF</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pub-card" data-topic="generaldl-applications" data-year="2021" data-selected="false">
+                    <div class="row">
+                        <div class="col-l col-xs-12 col-lg-3">
+                        </div>
+                        <div class="col-r col-xs-12 col-lg-9">
+                            <div class="pub-card-body">
+                                <h5 class="title">Va2mass: Towards the fluid filling mass estimation via integration of vision and audio learning</h5>
+                                <p class="authors">
+                                    <u>Qi Liu</u>,
+                                    <author>Fan Feng</author>,
+                                    <author>Chuanlin Lan</author>,
+                                    <a href="https://scholar.google.com/citations?user=n71R2h8AAAAJ&hl=en" target="_blank"><author>Rosa H.M. Chan</author></a>.
+                                    
+                                </p>
+                                <p class="info">
+                                    <em>International Conference on Pattern Recognition Workshop(<strong>ICPR W</strong>), 2021</em>
+                                    
+                                    <br>
+                                    <a href="https://doi.org/10.1007/978-3-030-68793-9_33" target="_blank">PDF</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="main-more-container">
+        <div class="main-service-container">
+            <h5 class="subtitle">Service</h5>
+            <strong>Journal Reviewer</strong>:
+                IEEE Journal of Translational Engineering in Health and Medicine (JTEHM) 2022-2023, 
+                IEEE Journal of Biomedical and Health Informatics (JBHI) 2022
+            <br>
+            <strong>Workshop Reviewer</strong>:
+                NeurIPS ICBINB Workhop 2023
+        </div>
+        <div class="main-exp-container">
+            <h5 class="subtitle">Experience</h5>
+            <ul>
+                <li><strong>Visiting Scholar </strong><br><i>UC San Diego</i>, San Diego, CA, Spring - Summer 2023.</li>
+                <li><strong>Visiting Scholar </strong><br><i>The Chinese University of Hong Kong, Shenzhen</i>, P.R.C., Summer 2021.</li>
+                <li><strong>Research Intern </strong><br><i>Beijing Academy of Artificial Intelligence</i>, Beijing, P.R.C., Spring - Fall 2022.</li>
+              </ul>
+        </div>
+    </div>
+</div>
+<hr>
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <!--<div class="comic"><img src="static/img/girl-with-fish.jpg" height="90px" /></div>-->
+            <div class="copyright">
+                <small>Last update: <span id="last_update"></span></small> 
+                <br>
+                <small>&copy; Copyright <span id="current_year"></span>, Qi Liu</small>
+            </div>
+            <div class="stat">
+                <script type="text/javascript" id="clstr_globe" src="//cdn.clustrmaps.com/globe.js?d=-23A1GPVvvuNiuBYLygGVwg1KDr82CpUn5H3v7m6J9s"></script>
+                <!--script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?d=-23A1GPVvvuNiuBYLygGVwg1KDr82CpUn5H3v7m6J9s&cl=ffffff&w=a"></script-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script type="text/javascript" src="static/js/jquery.color.min.js"></script>
+<!--script type="text/javascript" src="static/js/wave.js"></script-->
+<script type="text/javascript">
+function updateTime() {
+      var date = new Date(document.lastModified);
+      document.getElementById("last_update").innerHTML = date.toLocaleDateString();
+      document.getElementById("current_year").innerHTML = date.getFullYear();
+    }
+
+$.fn.isInViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    return elementBottom > viewportTop && elementTop < viewportBottom;
+};
+
+var allPublications = null;
+var w_r = $("#col-r").width();
+var w_l = $("#col-l").width();
+
+function playAllVideos() {
+  $("#main-pub-container video").each(function() {
+    this.play();
+  });
+}
+
+function publicationBySelected() {
+    $("#main-pub-card-container .pub-card .row .col-l").show();
+    var x = window.matchMedia("(min-width: 768px)")
+    if (x.matches) {
+        $("#main-pub-card-container .pub-card .col-r").css({"flex": "0 0 70%", "max-width": "70%"})
+    } else{
+        $("#main-pub-card-container .pub-card .col-r").css({"flex": "0 0 100%", "max-width": "100%"})
+    }
+    
+    var a = $("#publication-by-selected")
+    if (a.hasClass("activated")) {
+        return ;
+    }
+    $("#main-pub-container .subtitle a").removeClass("activated");
+    $("#main-pub-container .subtitle-aux a").removeClass("activated");
+    a.addClass("activated");
+
+    $("#main-pub-card-container").html("");
+    for (var pubId = 0; pubId < allPublications.length; pubId++) {
+        var pub = $(allPublications[pubId]);
+        if (pub.data("selected") == true) {
+            $("#main-pub-card-container").append(pub);
+        }
+    }
+    playAllVideos();
+}
+
+function publicationByDate() {
+    var a = $("#publication-by-date")
+    if (a.hasClass("activated")) {
+        return ;
+    }
+
+    $("#main-pub-container .subtitle a").removeClass("activated");
+    $("#main-pub-container .subtitle-aux a").removeClass("activated");
+    a.addClass("activated");
+
+    $("#main-pub-card-container").html("");
+    for (var pubId = 0; pubId < allPublications.length; pubId++) {
+        if (pubId == 0 || $(allPublications[pubId-1]).data("year") != $(allPublications[pubId]).data("year")) {
+            var year = $(allPublications[pubId]).data("year");
+            $("#main-pub-card-container").append($("<h5 id='year-" + year.toString() + "'>" + year.toString() + "</h5>"));
+        }
+        $("#main-pub-card-container").append(allPublications[pubId]);
+    }
+    playAllVideos();
+}
+
+function publicationByTopicInner() {
+    var a = $("#publication-by-topic")
+    if (a.hasClass("activated")) {
+        return ;
+    }
+    $("#main-pub-container .subtitle a").removeClass("activated");
+    a.addClass("activated");
+
+    $("#main-pub-card-container").html("");
+    for (var topicId in allTopics) {
+        var topic = allTopics[topicId].name;
+        var topicTitle = allTopics[topicId].title;
+        // var topicTitle = topic.split("-").map(function (a) { return a[0].toUpperCase() + a.substr(1).toLowerCase(); }).join(" ");
+        $("#main-pub-card-container").append($("<h5 id='topic-" + topic + "'>" + topicTitle + "</h5>"));
+        for (var pubId = 0; pubId < allPublications.length; pubId++) {
+            var pub = $(allPublications[pubId]);
+            if (pub.data("topic").indexOf(topic) != -1) {
+                $("#main-pub-card-container").append(pub);
+            }
+        }
+    }
+}
+
+function publicationByTopicSpecificInner(a) {
+    $("#main-pub-card-container .pub-card .row .col-l").hide();
+    /*$("#main-pub-card-container .pub-card .col-r").css({"flex": "0 0 100%", "max-width": "100%"})*/
+    var x = window.matchMedia("(max-width: 768px)")
+    if (x.matches) {
+        $("#main-pub-card-container .pub-card .col-r").css({"flex": "0 0 70%", "max-width": "70%"})
+    } else{
+        $("#main-pub-card-container .pub-card .col-r").css({"flex": "0 0 100%", "max-width": "100%"})
+    }
+    if ($(a).hasClass("activated")) {
+        return false;
+    }
+
+    $("#main-pub-container .subtitle-aux a").removeClass("activated");
+    $(a).addClass("activated");
+}
+
+function publicationByTopic() {
+    
+    publicationByTopicInner();
+    publicationByTopicSpecificInner($("#main-pub-container .subtitle-aux a:first"));
+    playAllVideos();
+    return true;
+}
+
+function publicationByTopicSpecific(a) {
+    publicationByTopicInner();
+    publicationByTopicSpecificInner(a);
+
+    var hash = a.hash;
+    $(hash).prop('id', hash.substr(1) + '-noscroll');
+    window.location.hash = hash;
+    $(hash + '-noscroll').prop('id', hash.substr(1));
+
+    if (!$(hash).isInViewport()) {
+        $('html, body').animate({
+            scrollTop: $(hash).offset().top
+        }, 1000, function(){
+        });
+    }
+
+    playAllVideos();
+    return false;
+}
+
+$(function() {
+    getRealSize = function(bgImg) {
+        var img = new Image();
+        img.src = bgImg.attr("src");
+        var width = img.width,
+            height = img.height;
+        return {
+            width: width,
+            height: height
+        }
+    };
+
+    getRealWindowSize = function() {
+        var winWidth = null,
+            winHeight = null;
+        if (window.innerWidth) winWidth = window.innerWidth;
+        else if ((document.body) && (document.body.clientWidth)) winWidth = document.body.clientWidth;
+        if (window.innerHeight) winHeight = window.innerHeight;
+        else if ((document.body) && (document.body.clientHeight)) winHeight = document.body.clientHeight;
+        if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) {
+            winHeight = document.documentElement.clientHeight;
+            winWidth = document.documentElement.clientWidth
+        }
+        return {
+            width: winWidth,
+            height: winHeight
+        }
+    };
+
+    fullBg = function() {
+        var bgImg = $("#background");
+        var mainContainer = $("#main");
+        var firstFire = null;
+
+        if (bgImg.length == 0) {
+            return ;
+        }
+
+        function resizeImg() {
+            var realSize = getRealSize(bgImg);
+            var imgWidth = realSize.width;
+            var imgHeight = realSize.height;
+
+            if (imgWidth == 0 || imgHeight == 0) {
+                setTimeout(function() {
+                    resizeImg();
+                }, 200);
+            }
+
+            console.log(realSize);
+            var realWinSize = getRealWindowSize();
+            var winWidth = realWinSize.width;
+            var winHeight = realWinSize.height;
+            var widthRatio = winWidth / imgWidth;
+            var heightRatio = winHeight / imgHeight;
+            console.log(realWinSize);
+            if (widthRatio > heightRatio) {
+                bgImg.width(imgWidth * widthRatio + 'px').height(imgHeight * widthRatio + 'px').css({'top':
+                    -(imgHeight * widthRatio - winHeight) / 10 * 5 + 'px', 'left': '0'})
+            } else {
+                bgImg.width(imgWidth * heightRatio + 'px').height(imgHeight * heightRatio + 'px').css({'left':
+                    -(imgWidth * heightRatio - winWidth) / 10 * 3 + 'px', 'top': '0'})
+            }
+            // mainContainer.css({
+            //     width: winWidth,
+            //     height: winHeight
+            // });
+        }
+
+        resizeImg();
+        window.onresize = function() {
+            if (firstFire === null) {
+                firstFire = setTimeout(function() {
+                    resizeImg();
+                    firstFire = null
+                }, 100)
+            }
+        }
+    };
+
+    targetColor = $("#main-content-container .name").css("color");
+    animatedLink = function(speed) {
+        $("#main-content-container .col-link li").hover(function() {
+            $(this).find('.icon').animate({
+                color: targetColor,
+                borderColor: targetColor
+            }, speed);
+            $(this).find('.caption').animate({
+                color: targetColor
+            })
+        }, function() {
+            $(this).find('.icon').animate({
+                borderColor: '#cccccc',
+                color: '#cccccc'
+            }, speed);
+            $(this).find('.caption').animate({
+                color: '#cccccc'
+            })
+        })
+    };
+
+    // fullBg();
+    // animatedLink(400);
+
+    allPublications = $("#main-pub-card-container .pub-card");
+    allTopicsLink = $("#main-pub-container .subtitle-aux a");
+    allTopics = [];
+    for (var topicId = 0; topicId < allTopicsLink.length; topicId++) {
+        allTopics.push({name: $(allTopicsLink[topicId]).data("topic"), title: $(allTopicsLink[topicId]).html()});
+    }
+
+    $("#publication-by-selected").click();
+    // $("#publication-by-date").click();
+    $("#main-pub-card-container").removeClass("hide");
+});
+</script>
+</body>
+</html>
